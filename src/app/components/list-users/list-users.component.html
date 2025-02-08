@@ -1,0 +1,22 @@
+<p>list-users works!</p>
+<div>
+    <h2 class="text-xl text-red-500 font-bold">Lista de usuarios</h2>
+    <table>
+        <thead>
+            <tr>
+                <th class="border px-4">ID</th>
+                <th class="border px-4">Usuario</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td class="border px-4">
+                    {{user._id}}
+                </td>
+                <td class="border px-4">
+                    {{user.username}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
