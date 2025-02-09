@@ -1,0 +1,12 @@
+<p>search-user works!</p>
+<div>
+    <h2 class="text-xl font-bold text-blue-500 mb-4">Buscar usuario</h2>
+    <input type="text" [(ngModel)]="username" class="border p-2">
+    <button (click)="search()">Search</button>
+    <br>
+    <div *ngIf="found">
+        <h3>test</h3>
+        <h2>Id: {{user.id}}</h2>
+        <h2>Usuario: {{user.username}}</h2>
+    </div>
+</div>

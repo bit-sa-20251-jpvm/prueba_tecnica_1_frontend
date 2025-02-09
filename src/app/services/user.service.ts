@@ -15,6 +15,12 @@ export class UserService {
   }
 
   createUser(user: any) : Observable<any>{
-    return this.http.post<any>(`${this.apiUrl}/create-users`,user);
+    return this.http.post<any>(`${this.apiUrl}/create-user`,user);
   }
+
+  findUser(id: string) : Observable<any>{
+    return this.http.get(`${this.apiUrl}/find-user/${id}`);
+  }
+
+
 }

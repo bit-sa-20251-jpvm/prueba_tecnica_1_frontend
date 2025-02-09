@@ -18,12 +18,12 @@ export class RegisterUserComponent {
   register(): void{
     this.userService.createUser({username:this.username, password:this.password}).subscribe({
       next:(response) =>{
-        console.log(response);
+        alert('Usuario creado')
         this.username = '';
         this.password = '';
       },
-      error:(response) =>{
-        alert('A')
+      error:(error) =>{
+        alert(error.error.msg)
       }
     }
     )
