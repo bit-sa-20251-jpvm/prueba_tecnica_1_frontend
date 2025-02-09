@@ -6,15 +6,24 @@
             <tr>
                 <th class="border px-4">ID</th>
                 <th class="border px-4">Usuario</th>
+                <th class="border px-4">Acciones</th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let user of users">
-                <td class="border px-4">
+                <td class="border px-4 py-2">
                     {{user._id}}
                 </td>
-                <td class="border px-4">
+                <td class="border px-4 py-2">
                     {{user.username}}
+                </td>
+                <td class="border px-4 py-2">
+                    <button class="bg-red-500 hover:bg-red-700 text-white font-bold mx-1 py-2 px-2 rounded-full" (click)="delete(user.username)">
+                        Eliminar
+                    </button>
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-1 py-2 px-2 rounded-full" >
+                        Editar
+                    </button>
                 </td>
             </tr>
         </tbody>

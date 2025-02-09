@@ -5,7 +5,7 @@ import { SearchUserComponent } from './components/search-user/search-user.compon
 
 export const routes: Routes = [{
     title:'Lista de usuarios',
-    path: 'list-users',
+    path: 'userlist',
     component: ListUsersComponent
 },{
     title:'Registro',
