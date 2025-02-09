@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http: HttpClient) { }
 
-  listUsers() : Observable<any>{
+  readUsers() : Observable<any>{
     return this.http.get<any>(`${this.apiUrl}/get-users`);
   }
 
@@ -24,6 +24,10 @@ export class UserService {
 
   deleteUser(id: string) : Observable<any>{
     return this.http.delete(`${this.apiUrl}/delete-user/${id}`);
+  }
+
+  updateUser(user: any) : Observable<any>{
+    return this.http.put<any>(`${this.apiUrl}/update-user`,user);
   }
 
 }

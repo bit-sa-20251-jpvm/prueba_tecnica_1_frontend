@@ -1,5 +1,5 @@
 <p>list-users works!</p>
-<div>
+<div *ngIf="!editing">
     <h2 class="text-xl text-red-500 font-bold">Lista de usuarios</h2>
     <table>
         <thead>
@@ -21,11 +21,23 @@
                     <button class="bg-red-500 hover:bg-red-700 text-white font-bold mx-1 py-2 px-2 rounded-full" (click)="delete(user.username)">
                         Eliminar
                     </button>
-                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-1 py-2 px-2 rounded-full" >
+                    <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-1 py-2 px-2 rounded-full" (click)="editing=true;currentUser=user;currentUser.password='' " >
                         Editar
                     </button>
                 </td>
             </tr>
         </tbody>
     </table>
+</div>
+<div *ngIf="editing">
+    <div class="border px-4">
+        <h2 class="text-xl text-red-500 font-bold" >Editando a {{currentUser.username}}</h2>
+        <h4>contraseña actual</h4>
+        <input type="text" [(ngModel)]="currentUser.password" >
+        <h4>contraseña nueva</h4>
+        <input type="text" [(ngModel)]="currentUser.updatedPassword" >
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold mx-1 py-2 px-2 rounded-full" (click)="update()">
+            Aceptar
+        </button>
+    </div>
 </div>
