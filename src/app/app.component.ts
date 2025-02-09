@@ -15,14 +15,21 @@ import { UserService } from './services/user.service';
 export class AppComponent {
   title = 'prueba_tecnica_1_frontend';
   routes = routes; // rutas pa la navbar
-
   constructor(private userService: UserService){}
 
   isLogged(): boolean{
     return this.userService.loggedIn;
   }
 
+  name(): string{
+    return this.userService.username;
+  }
+
   setLog(a: boolean): void{
     this.userService.loggedIn = a;
+  }
+
+  setName(n: string): void{
+    this.userService.username = n;
   }
 }

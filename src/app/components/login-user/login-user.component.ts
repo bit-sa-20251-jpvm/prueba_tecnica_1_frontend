@@ -13,13 +13,16 @@ import Swal from 'sweetalert2';
 export class LoginUserComponent {
   username: string = '';
   password: string = '';
+  user: any = {username:''}
   swal: any = Swal;
   constructor(private userService: UserService) {}
 
   login(): void {
     this.userService.loginUser({ username: this.username, password: this.password }).subscribe({
       next: (response) => {
+        console.log(this.username);
         this.setLog(true);
+        this.setName(this.username);
         Swal.fire({
           icon: 'success',
           title: response.msg
@@ -45,6 +48,10 @@ export class LoginUserComponent {
 
   setLog(a: boolean): void{
     this.userService.loggedIn = a;
+  }
+
+  setName(n: string): void{
+    this.userService.username = n;
   }
 
 }
