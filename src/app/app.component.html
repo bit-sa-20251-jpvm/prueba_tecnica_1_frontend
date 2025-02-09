@@ -1,2 +1,18 @@
-
+<nav class="bg-gray-800 p-4">
+  <div class="container mx-auto flex justify-between items-center">
+    <div>
+      <a routerLink="/" class="text-white font-bold text-xl">AyudaNoHeDormido</a>  </div>
+    <ul class="flex space-x-4">
+      <li *ngFor="let route of routes">
+        <div *ngIf="(isLogged() && route.title != 'Inicio de sesion') || (!isLogged()) ">
+        <a [routerLink]="route.path" routerLinkActive="active"
+           class="text-gray-300 hover:text-white px-3 py-2 rounded-md font-medium"
+           [title]="route.title">
+          {{ route.title }}
+        </a>
+      </div>
+      </li>
+    </ul>
+    </div>
+</nav>
 <router-outlet />

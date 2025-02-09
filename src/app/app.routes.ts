@@ -10,11 +10,11 @@ export const routes: Routes = [{
     component: ListUsersComponent
 },{
     title:'Registro',
-    path: 'register',
+    path: 'register', //ruta de registrar usuario
     component: RegisterUserComponent
 },{
     title:'Busqueda',
-    path: 'search',
+    path: 'search', //ruta de la ventana de buscar usuarios
     component: SearchUserComponent
 },
 {

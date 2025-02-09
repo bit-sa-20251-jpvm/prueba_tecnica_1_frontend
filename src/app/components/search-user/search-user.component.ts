@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { UserService } from '../../services/user.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-search-user',
@@ -28,9 +29,17 @@ export class SearchUserComponent {
         },
         error:(error) =>{
           this.found = false;
-          alert(error.error.msg)
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: error.error.msg
+          });
         }
       }
       )
+    }
+
+    isLogged(): boolean{
+      return this.userService.loggedIn;
     }
 }
